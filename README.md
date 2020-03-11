@@ -1,16 +1,29 @@
-requirements: 
+# Requirements
 * Java 8u162+
 * Maven 
 
-build: 
+# Build
 ```
 $ mvn package
 ```
 
-usage: 
+# Usage 
 ```
 $ java -jar  target\mhw_decos_csv-1.0.jar DECRYPTED_SAVE_FILE
 ```
 
-todo:
-decrypt the save file
+# To do
+
+Decrypt the save file
+
+# Credit
+
+MHW modding discord
+
+legendff - save decrypting tool
+
+Deathcream - decoration byte offsets
+
+Vuze - script prototype
+
+Ice - jewel item ID to names
