@@ -36,7 +36,8 @@ public class App {
     for(int i=0; i<3; ++i) {
       int counts[] = getJewelCounts(bytes, kSaveSlotDecosOffsets[i]);
       if (counts != null) {
-        printJewels(counts);
+        // printJewels(counts);
+        outputHoneyHunter(counts);
       }
     }
     return;
@@ -44,12 +45,35 @@ public class App {
 
   public static void printJewels(int[] counts) {
     for (int i=0; i<counts.length; ++i) {
-      String name = DecorationNames.getDecorationName(i + 727);
+      String name = DecorationNames.getDecorationName(i + kMinJewelId);
       int count = counts[i];
       if(name.length() != 0 && count != 0) {
         System.out.println(name + ": " + counts[i]);
       }
     }
+  }
+
+  public static void outputHoneyHunter(int[] counts) {
+    int hhCounts[] = new int[HoneyHunter.kNumDecos];
+    Arrays.fill(hhCounts, 0);
+
+    for (int i=0; i<counts.length; ++i) {
+      String name = DecorationNames.getDecorationName(i + kMinJewelId);
+      if (name.length() == 0) {
+        continue;
+      }
+      int count = Math.min(counts[i], HoneyHunter.getMaxCountFromName(name));
+      int order = HoneyHunter.getOrderingFromName(name);
+      if (order < 0 || count < 0) {
+        continue;
+      }
+      hhCounts[order] = count;
+    }
+
+    for (int i=0; i<hhCounts.length; ++i) {
+      System.out.print(hhCounts[i] + ",");
+    }
+    System.out.println();
   }
 
   public static int[] getJewelCounts(byte[] bytes, int offset) {
