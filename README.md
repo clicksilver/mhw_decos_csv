@@ -14,7 +14,8 @@ $ java -jar  target\mhw_decos_csv-1.0.jar DECRYPTED_SAVE_FILE
 
 # To do
 
-Decrypt the save file
+* Decrypt the save file
+* Export to MHW DB
 
 # Credit
 
