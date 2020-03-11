@@ -2,80 +2,90 @@ package exporter;
 
 import java.lang.String;
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.nio.file.*;
 import java.util.Arrays;
 
 public class App {
 
-  public static void main(String[] args)
-  {
-    // save data layout info
-    int decoBoxOffset = 0x119690;
-    int slotSize = 0x2098C0;
-    int[] slotOffsets = new int[]{ 0x3010D8, 0x50AB98, 0x714658 };
+  // Decoration item IDs
+  static final int kMinJewelId = 727;
+  static final int kMaxJewelId = 2272;
+  static final int kNumDecos = kMaxJewelId - kMinJewelId + 1;
+  
+  // 10 pages, 50 jewels per page
+  static final int kDecoInventorySize = 50 * 10; 
 
-    // parse the save file
+  // 8 bytes per jewel, (4 for ID + 4 for count)
+  static final int kNumBytesPerDeco = 8;
+
+  // direct offsets into the decrypted save, where each decorations list starts
+  static final int kSaveSlotDecosOffsets[] = new int[]{4302696, 6439464, 8576232};
+
+  public static void main(String[] args) {
     byte[] bytes;
     Path p = Paths.get(args[0]);
     try {
       bytes = Files.readAllBytes(p);
     } catch(Exception e) {
-      System.out.println("Failed to read bytes.");
+      System.out.println("Failed to read decryped save file for some reason.");
       return;
     }
     System.out.println("Save file: " + bytes.length + " bytes");
 
-    int counts[] = getJewelCounts(bytes);
+    for(int i=0; i<3; ++i) {
+      int counts[] = getJewelCounts(bytes, kSaveSlotDecosOffsets[i]);
+      if (counts != null) {
+        printJewels(counts);
+      }
+    }
     return;
   }
 
-  public static int[] getJewelCounts(byte[] bytes) {
-    final int kMinJewelId = 727;
-    final int kMaxJewelId = 2272;
-    final int kDecoListSz = 50*10*8; // 10 page, 50 jewels, 4 bytes for ID + 4 bytes for count
-    
-    // output list of valid jewel counts extracted
-    int counts[] = new int[kMaxJewelId - kMinJewelId + 1];
-
-    int offset = 0;
-    while (offset < (bytes.length-kDecoListSz)) {
-      // searching the save data bytes for a valid jewel inventory 
-      ByteBuffer buf = ByteBuffer.wrap(bytes, offset, kDecoListSz);
-
-      boolean isValid = true;
-      for (int i=0; i<kDecoListSz; i+=8) {
-        int itemId = buf.getInt(i);
-        
-        if(itemId == 0) {
-          // potentially just an empty entry in the deco list, so it doesn't mean this is an invalid set of bytes
-          continue;
-        }
-
-        if (itemId < kMinJewelId || itemId > kMaxJewelId) {
-          // not a valid jewel entry
-          isValid = false;
-          break;
-        }
-
-        int jewelCount = buf.getInt(i+4);
-        if (jewelCount < 0) {
-          // not a valid inventory entry
-          isValid = false;
-          break;
-        }
-
-        counts[itemId - kMinJewelId] = jewelCount;
-      }
-
-      if (isValid) {
-        System.out.println("Found a valid inventory at offset = " + offset);
-        return counts;
-      } else {
-        // test the next potential slice of bytes for a valid jewel counts
-        Arrays.fill(counts, 0, counts.length, 0);
-        offset += 1;
+  public static void printJewels(int[] counts) {
+    for (int i=0; i<counts.length; ++i) {
+      String name = DecorationNames.getDecorationName(i + 727);
+      int count = counts[i];
+      if(name.length() != 0 && count != 0) {
+        System.out.println(name + ": " + counts[i]);
       }
     }
-    return counts;
+  }
+
+  public static int[] getJewelCounts(byte[] bytes, int offset) {
+    int counts[] = new int[kNumDecos];
+
+    ByteBuffer buf = ByteBuffer.wrap(bytes, offset, kDecoInventorySize * kNumBytesPerDeco);
+    
+    // NOTE: Java is dumb about bytes.
+    buf.order(ByteOrder.LITTLE_ENDIAN);
+    
+    boolean anyNonZero = false;
+
+    for (int i=0; i<kDecoInventorySize; i++) {
+      int jewelId = buf.getInt();
+      int jewelCount = buf.getInt();
+      if(jewelId == 0) {
+        // missing owned deco, which is not an invalid deco
+        continue;
+      }
+      if (jewelId < kMinJewelId || jewelId > kMaxJewelId) {
+        System.out.println("Error parsing decorations. Index=" + i +
+            " ID=" + jewelId +
+            " Count=" + jewelCount);
+        return null;
+      }
+
+      if (jewelCount > 0) {
+        anyNonZero = true;
+      }
+
+      counts[jewelId - kMinJewelId] = jewelCount;
+    }
+
+    if (anyNonZero) {
+      return counts;
+    }
+    return null;
   }
 }
