@@ -448,7 +448,7 @@ public class HoneyHunter {
   public static int getOrderingFromName(String name) {
     LoadTables();
     if (!kNameToMaxCount.containsKey(name)) {
-      System.out.println("Missing deco name: " + name);
+      // System.out.println("Missing deco name: " + name);
       return -1;
     }
     return kNameToOrdering.get(name);
@@ -457,7 +457,7 @@ public class HoneyHunter {
   public static int getMaxCountFromName(String name) {
     LoadTables();
     if (!kNameToMaxCount.containsKey(name)) {
-      System.out.println("Missing deco name: " + name);
+      // System.out.println("Missing deco name: " + name);
       return -1;
     }
     return kNameToMaxCount.get(name);

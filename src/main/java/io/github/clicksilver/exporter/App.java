@@ -37,7 +37,7 @@ public class App {
       int counts[] = getJewelCounts(bytes, kSaveSlotDecosOffsets[i]);
       if (counts != null) {
         // printJewels(counts);
-        outputHoneyHunter(counts);
+        outputWikiDB(counts);
       }
     }
     return;
@@ -51,6 +51,31 @@ public class App {
         System.out.println(name + ": " + counts[i]);
       }
     }
+  }
+  
+  public static void outputWikiDB(int[] counts) {
+    int wikiDBcounts[] = new int[WikiDB.kNumDecos];
+    Arrays.fill(wikiDBcounts, 0);
+
+    for (int i=0; i<counts.length; ++i) {
+      String name = DecorationNames.getDecorationName(i + kMinJewelId);
+      if (name.length() == 0) {
+        continue;
+      }
+      int order = WikiDB.getOrderingFromName(name);
+      if (order < 0) {
+        continue;
+      }
+      wikiDBcounts[order] = counts[i];
+    }
+
+    System.out.print("{");
+    for (int i=0; i<wikiDBcounts.length; ++i) {
+      int count = Math.max(0, wikiDBcounts[i]);
+      count = Math.min(count, 7);
+      System.out.print("\"" + WikiDB.kDecoNames[i] + "\":" + count + ",");
+    }
+    System.out.println("}");
   }
 
   public static void outputHoneyHunter(int[] counts) {
