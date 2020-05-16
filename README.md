@@ -11,13 +11,16 @@ $ mvn package
 
 # Usage 
 ```
-$ java -jar  target\mhw_decos_csv-1.0.jar DECRYPTED_SAVE_FILE
+$ java -jar  target\mhw_decos_csv-1.0.jar PATH_TO_SAVEFILE
 ```
 
 # To do
 
-* Decrypt the save file
-* Export to MHW DB
+* ~Decrypt the save file~
+* ~Export to MHW DB~
+* ~Create an executable and distribute~
+* ???
+* Profit
 
 # Credit
 
