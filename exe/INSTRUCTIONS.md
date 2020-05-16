@@ -7,7 +7,10 @@ Instructions for Use:
 
 * Drag the save file onto the mhw_export_decos.exe
 
-* Read the output from the generated file decorations.txt
+* This will generate 6 text files in the same folder.
+  The files correspond to your save slots, of which you have 3.
+  honeyhunter-1.txt is the Honey Hunter format, for save slot 1.
+  mhw-wiki-db-1.txt is the MHW Wiki DB format, for save slot 1.
 
 Problems?
 

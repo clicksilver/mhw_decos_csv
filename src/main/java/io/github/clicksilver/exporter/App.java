@@ -31,19 +31,36 @@ public class App {
     try {
       byte[] save = Files.readAllBytes(p);
       byte[] decrypted_save = Savecrypt.decryptSave(save);
-      FileWriter fileWriter = new FileWriter("decorations.txt");
       for (int i=0; i<3; ++i) {
+        // Get actual decoration counts from the decrypted save.
 	      int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
-	      fileWriter.write("\n");
+
+        // Write out the Honeyhunter format.
+        FileWriter honeyFile = new FileWriter("honeyhunter-" + 
+                                              String.valueOf(i+1) + ".txt");
 	      if (decorationCounts != null) {
-		      fileWriter.write(outputHoneyHunter(decorationCounts));
-		      fileWriter.write("\n");
-		      fileWriter.write("\n");
-		      fileWriter.write(outputWikiDB(decorationCounts));
+          honeyFile.write("WARNING: Unequip all decorations before using this "+
+                          "otherwise the count will be wrong.");
+          honeyFile.write("\n");
+          honeyFile.write("\n");
+		      honeyFile.write(outputHoneyHunter(decorationCounts));
+          honeyFile.write("\n");
 	      }
-	      fileWriter.write("\n");
+        honeyFile.close();
+
+        // Write out the MHW Wiki DB format.
+        FileWriter wikidbFile = new FileWriter("mhw-wiki-db-" +
+                                               String.valueOf(i+1) + ".txt");
+	      if (decorationCounts != null) {
+          wikidbFile.write("WARNING: Unequip all decorations before using this"+
+                           " otherwise the count will be wrong.");
+          wikidbFile.write("\n");
+          wikidbFile.write("\n");
+		      wikidbFile.write(outputWikiDB(decorationCounts));
+          wikidbFile.write("\n");
+	      }
+        wikidbFile.close();
       }
-      fileWriter.close();
     } catch(Exception e) {
       System.out.println("Failed to read decryped save file for some reason.");
       return;
