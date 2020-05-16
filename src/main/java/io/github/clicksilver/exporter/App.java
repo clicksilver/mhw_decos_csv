@@ -1,10 +1,13 @@
 package exporter;
 
+import java.io.FileWriter;
 import java.lang.String;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.file.*;
 import java.util.Arrays;
+
+import io.github.legendff.mhw.save.Savecrypt;
 
 public class App {
 
@@ -26,19 +29,24 @@ public class App {
     byte[] bytes;
     Path p = Paths.get(args[0]);
     try {
-      bytes = Files.readAllBytes(p);
+      byte[] save = Files.readAllBytes(p);
+      byte[] decrypted_save = Savecrypt.decryptSave(save);
+      FileWriter fileWriter = new FileWriter("decorations.txt");
+      for (int i=0; i<3; ++i) {
+	      int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
+	      fileWriter.write("\n");
+	      if (decorationCounts != null) {
+		      fileWriter.write(outputHoneyHunter(decorationCounts));
+		      fileWriter.write("\n");
+		      fileWriter.write("\n");
+		      fileWriter.write(outputWikiDB(decorationCounts));
+	      }
+	      fileWriter.write("\n");
+      }
+      fileWriter.close();
     } catch(Exception e) {
       System.out.println("Failed to read decryped save file for some reason.");
       return;
-    }
-    System.out.println("Save file: " + bytes.length + " bytes");
-
-    for(int i=0; i<3; ++i) {
-      int counts[] = getJewelCounts(bytes, kSaveSlotDecosOffsets[i]);
-      if (counts != null) {
-        // printJewels(counts);
-        outputWikiDB(counts);
-      }
     }
     return;
   }
@@ -53,7 +61,7 @@ public class App {
     }
   }
   
-  public static void outputWikiDB(int[] counts) {
+  public static String outputWikiDB(int[] counts) {
     int wikiDBcounts[] = new int[WikiDB.kNumDecos];
     Arrays.fill(wikiDBcounts, 0);
 
@@ -69,16 +77,22 @@ public class App {
       wikiDBcounts[order] = counts[i];
     }
 
-    System.out.print("{");
+    StringBuilder contents = new StringBuilder("");
+    contents.append("{");
     for (int i=0; i<wikiDBcounts.length; ++i) {
       int count = Math.max(0, wikiDBcounts[i]);
       count = Math.min(count, 7);
-      System.out.print("\"" + WikiDB.kDecoNames[i] + "\":" + count + ",");
+      contents.append("\"");
+      contents.append(WikiDB.kDecoNames[i]);
+      contents.append("\":");
+      contents.append(count);
+      contents.append(",");
     }
-    System.out.println("}");
+    contents.append("}");
+    return contents.toString();
   }
 
-  public static void outputHoneyHunter(int[] counts) {
+  public static String outputHoneyHunter(int[] counts) {
     int hhCounts[] = new int[HoneyHunter.kNumDecos];
     Arrays.fill(hhCounts, 0);
 
@@ -95,10 +109,12 @@ public class App {
       hhCounts[order] = count;
     }
 
+    StringBuilder contents = new StringBuilder("");
     for (int i=0; i<hhCounts.length; ++i) {
-      System.out.print(hhCounts[i] + ",");
+      contents.append(hhCounts[i]);
+      contents.append(",");
     }
-    System.out.println();
+    return contents.toString();
   }
 
   public static int[] getJewelCounts(byte[] bytes, int offset) {
