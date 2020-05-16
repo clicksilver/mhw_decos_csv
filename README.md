@@ -1,5 +1,9 @@
 Utility for exporting your decorations inventory to Honey Hunter, directly from your save-file
 
+# Releases
+
+If you want to just download the exectuable, check the releases page: https://github.com/clicksilver/mhw_decos_csv/releases/
+
 # Requirements
 * Java 8u162+
 * Maven 
