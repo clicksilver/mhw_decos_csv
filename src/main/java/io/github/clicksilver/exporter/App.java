@@ -6,6 +6,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.file.*;
 import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import io.github.legendff.mhw.save.Savecrypt;
 
@@ -26,6 +28,13 @@ public class App {
   static final int kSaveSlotDecosOffsets[] = new int[]{4302696, 6439464, 8576232};
 
   public static void main(String[] args) {
+    if (args.length == 0) {
+      JFrame frame = new JFrame();
+      JOptionPane.showMessageDialog(frame, "No save file detected. Drag the " +
+                                    "save file onto the executable.", "ERROR",
+                                    JOptionPane.INFORMATION_MESSAGE);
+      System.exit(0);
+    }
     byte[] bytes;
     Path p = Paths.get(args[0]);
     try {
