@@ -30,9 +30,9 @@ public class App {
   public static void main(String[] args) {
     if (args.length == 0) {
       JFrame frame = new JFrame();
-      JOptionPane.showMessageDialog(frame, "No save file detected. Drag the " +
-                                    "save file onto the executable.", "ERROR",
-                                    JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(frame, "No input save file detected.\n\n" +
+                                    "Drag save file onto the executable.",
+                                    "ERROR", JOptionPane.INFORMATION_MESSAGE);
       System.exit(0);
     }
     byte[] bytes;
@@ -40,6 +40,7 @@ public class App {
     try {
       byte[] save = Files.readAllBytes(p);
       byte[] decrypted_save = Savecrypt.decryptSave(save);
+
       for (int i=0; i<3; ++i) {
         // Get actual decoration counts from the decrypted save.
 	      int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
@@ -70,9 +71,16 @@ public class App {
 	      }
         wikidbFile.close();
       }
+
+      JFrame frame = new JFrame();
+      JOptionPane.showMessageDialog(frame, "Successfully exported decorations",
+          "COMPLETE", JOptionPane.INFORMATION_MESSAGE);
+      System.exit(0);
     } catch(Exception e) {
-      System.out.println("Failed to read decryped save file for some reason.");
-      return;
+      JFrame frame = new JFrame();
+      JOptionPane.showMessageDialog(frame, "Not a valid save file.", "ERROR",
+          JOptionPane.INFORMATION_MESSAGE);
+      System.exit(0);
     }
     return;
   }
