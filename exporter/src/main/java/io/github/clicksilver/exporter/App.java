@@ -1,4 +1,4 @@
-package exporter;
+package io.github.clicksilver.exporter;
 
 import java.io.FileWriter;
 import java.lang.String;
@@ -39,37 +39,56 @@ public class App {
     Path p = Paths.get(args[0]);
     try {
       byte[] save = Files.readAllBytes(p);
-      byte[] decrypted_save = Savecrypt.decryptSave(save);
+      byte[] decrypted_save = io.github.legendff.mhw.save.Savecrypt.decryptSave(save);
 
       for (int i=0; i<3; ++i) {
         // Get actual decoration counts from the decrypted save.
-	      int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
+        int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
+        
+        // If there are no decorations counted, skip this save file.
+        boolean hasNonZeroCount = false;
+        for (int j=0; j < decorationCounts.length; ++j) {
+          if (decorationCounts[j] > 0) {
+            hasNonZeroCount = true;
+          }
+        }
+        if (!hasNonZeroCount) { break; }
 
         // Write out the Honeyhunter format.
-        FileWriter honeyFile = new FileWriter("honeyhunter-" + 
-                                              String.valueOf(i+1) + ".txt");
-	      if (decorationCounts != null) {
-          honeyFile.write("WARNING: Unequip all decorations before using this "+
-                          "otherwise the count will be wrong.");
-          honeyFile.write("\n");
-          honeyFile.write("\n");
-		      honeyFile.write(outputHoneyHunter(decorationCounts));
-          honeyFile.write("\n");
-	      }
-        honeyFile.close();
+        FileWriter honeyFile;
+        try {
+          honeyFile = new FileWriter("honeyhunter-" + String.valueOf(i + 1) + ".txt");
+          if (decorationCounts != null) {
+            honeyFile
+                .write("WARNING: Unequip all decorations before using this " + "otherwise the count will be wrong.");
+            honeyFile.write("\n");
+            honeyFile.write("\n");
+            honeyFile.write(outputHoneyHunter(decorationCounts));
+            honeyFile.write("\n");
+          }
+          honeyFile.close();
+        } catch(Exception e) {
+          JFrame frame = new JFrame();
+          JOptionPane.showMessageDialog(frame, "Failed to write honey hunter output");
+        }
 
         // Write out the MHW Wiki DB format.
-        FileWriter wikidbFile = new FileWriter("mhw-wiki-db-" +
-                                               String.valueOf(i+1) + ".txt");
-	      if (decorationCounts != null) {
-          wikidbFile.write("WARNING: Unequip all decorations before using this"+
-                           " otherwise the count will be wrong.");
-          wikidbFile.write("\n");
-          wikidbFile.write("\n");
-		      wikidbFile.write(outputWikiDB(decorationCounts));
-          wikidbFile.write("\n");
-	      }
-        wikidbFile.close();
+        FileWriter wikidbFile;
+        try {
+          wikidbFile = new FileWriter("mhw-wiki-db-" + String.valueOf(i + 1) + ".txt");
+          if (decorationCounts != null) {
+            wikidbFile
+                .write("WARNING: Unequip all decorations before using this" + " otherwise the count will be wrong.");
+            wikidbFile.write("\n");
+            wikidbFile.write("\n");
+            wikidbFile.write(outputWikiDB(decorationCounts));
+            wikidbFile.write("\n");
+          }
+          wikidbFile.close();
+        } catch (Exception e) {
+          JFrame frame = new JFrame();
+          JOptionPane.showMessageDialog(frame, "Failed to write honey hunter output");
+        }
       }
 
       JFrame frame = new JFrame();

@@ -1,4 +1,4 @@
-package exporter;
+package io.github.clicksilver.exporter;
 
 import java.lang.String;
 import java.util.HashMap;

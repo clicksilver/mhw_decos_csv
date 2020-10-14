@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.github.clicksilver.exporter</groupId>
+    <artifactId>mhw_decos_exporter</artifactId>
+    <version>1.2</version>
+  </parent>
+
+  <name>savecrypt</name>
+  <groupId>io.github.legendff.mhw.save</groupId>
+  <artifactId>savecrypt</artifactId>
+  <packaging>jar</packaging>
+
+  <build>
+    <sourceDirectory>
+      mhw-saveCrypt/src/main/java  
+    </sourceDirectory>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>org.apache.maven.plugins</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>io.github.legendff.mhw.save.Savecrypt</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

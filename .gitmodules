@@ -1,0 +1,6 @@
+[submodule "third_party/mhw-Savecrypt"]
+	path = third_party/mhw-Savecrypt
+	url = git@github.com:LEGENDFF/mhw-Savecrypt.git
+[submodule "savecrypt/mhw-Savecrypt"]
+	path = savecrypt/mhw-Savecrypt
+	url = git@github.com:LEGENDFF/mhw-Savecrypt.git
