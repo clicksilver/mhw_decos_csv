@@ -15,7 +15,7 @@ public class App {
 
   // Decoration item IDs
   static final int kMinJewelId = 727;
-  static final int kMaxJewelId = 2272;
+  static final int kMaxJewelId = 2275;
   static final int kNumDecos = kMaxJewelId - kMinJewelId + 1;
   
   // 10 pages, 50 jewels per page
@@ -46,13 +46,7 @@ public class App {
         int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
         
         // If there are no decorations counted, skip this save file.
-        boolean hasNonZeroCount = false;
-        for (int j=0; j < decorationCounts.length; ++j) {
-          if (decorationCounts[j] > 0) {
-            hasNonZeroCount = true;
-          }
-        }
-        if (!hasNonZeroCount) { break; }
+        if (decorationCounts == null) { break; }
 
         // Write out the Honeyhunter format.
         FileWriter honeyFile;
@@ -87,7 +81,7 @@ public class App {
           wikidbFile.close();
         } catch (Exception e) {
           JFrame frame = new JFrame();
-          JOptionPane.showMessageDialog(frame, "Failed to write honey hunter output");
+          JOptionPane.showMessageDialog(frame, "Failed to write mhw-wiki-db output");
         }
       }
 
@@ -96,6 +90,8 @@ public class App {
           "COMPLETE", JOptionPane.INFORMATION_MESSAGE);
       System.exit(0);
     } catch(Exception e) {
+      e.printStackTrace();
+      System.out.println(e);
       JFrame frame = new JFrame();
       JOptionPane.showMessageDialog(frame, "Not a valid save file.", "ERROR",
           JOptionPane.INFORMATION_MESSAGE);

@@ -406,6 +406,9 @@ public class DecorationNames {
     if (id == 2269) { return "Release/Evasion Jewel 4"; }
     if (id == 2270) { return "Survival Jewel 1"; }
     if (id == 2272) { return "Warming Jewel 2"; }
+    if (id == 2273) { return "new jewel 1"; }
+    if (id == 2274) { return "new jewel 2"; }
+    if (id == 2275) { return "new jewel 3"; }
 
     return "";
   }
