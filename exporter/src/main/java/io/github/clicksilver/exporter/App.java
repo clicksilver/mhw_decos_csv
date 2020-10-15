@@ -159,9 +159,10 @@ public class App {
     }
 
     StringBuilder contents = new StringBuilder("");
-    for (int i=0; i<hhCounts.length; ++i) {
-      contents.append(hhCounts[i]);
+    contents.append(hhCounts[0]);
+    for (int i=1; i<hhCounts.length; ++i) {
       contents.append(",");
+      contents.append(hhCounts[i]);
     }
     return contents.toString();
   }
