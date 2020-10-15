@@ -406,6 +406,9 @@ public class HoneyHunter {
     "Tenderizer/Evasion Jewel 4",
     "Handicraft/Evasion Jewel 4",
     "Release/Evasion Jewel 4",
+    "Shaver Jewel 3",
+    "Diversion Jewel 3",
+    "Acrobat Jewel 3",
   };
 
   static final int kDecoMaxCounts[] = {
@@ -419,7 +422,7 @@ public class HoneyHunter {
     5, 7, 7, 7, 5, 7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 5, 5, 7, 7, 5,
     5, 5, 5, 5, 7, 5, 5, 7, 5, 5, 5, 5, 5, 5, 7, 5, 5, 5, 7, 5, 5, 5, 5, 5, 7, 5, 5, 7, 5, 5, 5, 5, 5, 5, 7, 5, 5, 7, 7,
     5, 7, 5, 5, 5, 7, 5, 5, 7, 5, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7,
-    7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7
+    7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 1, 1, 1
   };
 
   static final int kNumDecos = kDecoNames.length;
