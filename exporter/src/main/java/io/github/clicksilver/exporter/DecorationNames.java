@@ -4,104 +4,104 @@ import java.lang.String;
 
 public class DecorationNames {
   public static String getDecorationName(int id) {
-    if (id == 727) { return "Antidote Jewel 1"; }
-    if (id == 728) { return "Antipara Jewel 1"; }
-    if (id == 729) { return "Pep Jewel 1"; }
-    if (id == 730) { return "Steadfast Jewel 1"; }
-    if (id == 731) { return "Antiblast Jewel 1"; }
-    if (id == 732) { return "Suture Jewel 1"; }
-    if (id == 733) { return "Def Lock Jewel 1"; }
-    if (id == 734) { return "Earplug Jewel 3"; }
-    if (id == 735) { return "Wind Resist Jewel 2"; }
-    if (id == 736) { return "Footing Jewel 2"; }
-    if (id == 739) { return "Attack Jewel 1"; }
-    if (id == 740) { return "Defense Jewel 1"; }
-    if (id == 741) { return "Vitality Jewel 1"; }
-    if (id == 742) { return "Recovery Jewel 1"; }
-    if (id == 743) { return "Fire Res Jewel 1"; }
-    if (id == 744) { return "Water Res Jewel 1"; }
-    if (id == 745) { return "Ice Res Jewel 1"; }
-    if (id == 746) { return "Thunder Res Jewel 1"; }
-    if (id == 747) { return "Dragon Res Jewel 1"; }
-    if (id == 748) { return "Resistor Jewel 1"; }
-    if (id == 749) { return "Blaze Jewel 1"; }
-    if (id == 750) { return "Stream Jewel 1"; }
-    if (id == 751) { return "Frost Jewel 1"; }
-    if (id == 752) { return "Bolt Jewel 1"; }
-    if (id == 753) { return "Dragon Jewel 1"; }
-    if (id == 754) { return "Venom Jewel 1"; }
-    if (id == 755) { return "Paralyzer Jewel 1"; }
-    if (id == 756) { return "Sleep Jewel 1"; }
-    if (id == 757) { return "Blast Jewel 1"; }
-    if (id == 758) { return "Poisoncoat Jewel 3"; }
-    if (id == 759) { return "Paracoat Jewel 3"; }
-    if (id == 760) { return "Sleepcoat Jewel 3"; }
-    if (id == 761) { return "Blastcoat Jewel 3"; }
-    if (id == 763) { return "Release Jewel 3"; }
-    if (id == 764) { return "Expert Jewel 1"; }
-    if (id == 765) { return "Critical Jewel 2"; }
-    if (id == 766) { return "Tenderizer Jewel 2"; }
-    if (id == 767) { return "Charger Jewel 2"; }
-    if (id == 768) { return "Handicraft Jewel 3"; }
-    if (id == 769) { return "Draw Jewel 2"; }
-    if (id == 770) { return "Destroyer Jewel 2"; }
-    if (id == 771) { return "KO Jewel 2"; }
-    if (id == 772) { return "Drain Jewel 1"; }
-    if (id == 774) { return "Flight Jewel 2"; }
-    if (id == 775) { return "Throttle Jewel 2"; }
-    if (id == 776) { return "Challenger Jewel 2"; }
-    if (id == 777) { return "Flawless Jewel 2"; }
-    if (id == 778) { return "Potential Jewel 2"; }
-    if (id == 779) { return "Fortitude Jewel 1"; }
-    if (id == 780) { return "Furor Jewel 2"; }
-    if (id == 781) { return "Sonorous Jewel 1"; }
-    if (id == 782) { return "Magazine Jewel 2"; }
-    if (id == 783) { return "Trueshot Jewel 1"; }
-    if (id == 784) { return "Artillery Jewel 1"; }
-    if (id == 785) { return "Heavy Artillery Jewel 1"; }
-    if (id == 786) { return "Sprinter Jewel 2"; }
-    if (id == 787) { return "Physique Jewel 2"; }
-    if (id == 789) { return "Refresh Jewel 2"; }
-    if (id == 790) { return "Hungerless Jewel 1"; }
-    if (id == 791) { return "Evasion Jewel 2"; }
-    if (id == 792) { return "Jumping Jewel 2"; }
-    if (id == 793) { return "Ironwall Jewel 1"; }
-    if (id == 794) { return "Sheath Jewel 1"; }
-    if (id == 795) { return "Friendship Jewel 1"; }
-    if (id == 796) { return "Enduring Jewel 1"; }
-    if (id == 797) { return "Satiated Jewel 1"; }
-    if (id == 798) { return "Gobbler Jewel 1"; }
-    if (id == 799) { return "Grinder Jewel 1"; }
-    if (id == 800) { return "Bomber Jewel 1"; }
-    if (id == 801) { return "Fungiform Jewel 1"; }
-    if (id == 808) { return "Protection Jewel 1"; }
-    if (id == 809) { return "Meowster Jewel 1"; }
-    if (id == 810) { return "Botany Jewel 1"; }
-    if (id == 811) { return "Geology Jewel 1"; }
-    if (id == 812) { return "Mighty Jewel 2"; }
-    if (id == 813) { return "Stonethrower Jewel 1"; }
-    if (id == 814) { return "Tip Toe Jewel 1"; }
-    if (id == 815) { return "Brace Jewel 3"; }
-    if (id == 819) { return "Smoke Jewel 1"; }
-    if (id == 820) { return "Mirewalker Jewel 1"; }
-    if (id == 824) { return "Specimen Jewel 1"; }
-    if (id == 825) { return "Miasma Jewel 1"; }
-    if (id == 826) { return "Scent Jewel 1"; }
-    if (id == 828) { return "Intimidator Jewel 1"; }
-    if (id == 832) { return "Slider Jewel 2"; }
-    if (id == 833) { return "Medicine Jewel 1"; }
-    if (id == 834) { return "Forceshot Jewel 3"; }
-    if (id == 835) { return "Pierce Jewel 3"; }
-    if (id == 836) { return "Spread Jewel 3"; }
-    if (id == 837) { return "Enhancer Jewel 2"; }
-    if (id == 838) { return "Crisis Jewel 1"; }
-    if (id == 839) { return "Dragonseal Jewel 3"; }
-    if (id == 842) { return "Maintenance Jewel 1"; }
-    if (id == 874) { return "Mighty Bow Jewel 2"; }
-    if (id == 875) { return "Mind's Eye Jewel 2"; }
-    if (id == 876) { return "Shield Jewel 2"; }
-    if (id == 877) { return "Sharp Jewel 2"; }
-    if (id == 878) { return "Elementless Jewel 2"; }
+    if (id ==  727) { return "Antidote Jewel 1"; }
+    if (id ==  728) { return "Antipara Jewel 1"; }
+    if (id ==  729) { return "Pep Jewel 1"; }
+    if (id ==  730) { return "Steadfast Jewel 1"; }
+    if (id ==  731) { return "Antiblast Jewel 1"; }
+    if (id ==  732) { return "Suture Jewel 1"; }
+    if (id ==  733) { return "Def Lock Jewel 1"; }
+    if (id ==  734) { return "Earplug Jewel 3"; }
+    if (id ==  735) { return "Wind Resist Jewel 2"; }
+    if (id ==  736) { return "Footing Jewel 2"; }
+    if (id ==  739) { return "Attack Jewel 1"; }
+    if (id ==  740) { return "Defense Jewel 1"; }
+    if (id ==  741) { return "Vitality Jewel 1"; }
+    if (id ==  742) { return "Recovery Jewel 1"; }
+    if (id ==  743) { return "Fire Res Jewel 1"; }
+    if (id ==  744) { return "Water Res Jewel 1"; }
+    if (id ==  745) { return "Ice Res Jewel 1"; }
+    if (id ==  746) { return "Thunder Res Jewel 1"; }
+    if (id ==  747) { return "Dragon Res Jewel 1"; }
+    if (id ==  748) { return "Resistor Jewel 1"; }
+    if (id ==  749) { return "Blaze Jewel 1"; }
+    if (id ==  750) { return "Stream Jewel 1"; }
+    if (id ==  751) { return "Frost Jewel 1"; }
+    if (id ==  752) { return "Bolt Jewel 1"; }
+    if (id ==  753) { return "Dragon Jewel 1"; }
+    if (id ==  754) { return "Venom Jewel 1"; }
+    if (id ==  755) { return "Paralyzer Jewel 1"; }
+    if (id ==  756) { return "Sleep Jewel 1"; }
+    if (id ==  757) { return "Blast Jewel 1"; }
+    if (id ==  758) { return "Poisoncoat Jewel 3"; }
+    if (id ==  759) { return "Paracoat Jewel 3"; }
+    if (id ==  760) { return "Sleepcoat Jewel 3"; }
+    if (id ==  761) { return "Blastcoat Jewel 3"; }
+    if (id ==  763) { return "Release Jewel 3"; }
+    if (id ==  764) { return "Expert Jewel 1"; }
+    if (id ==  765) { return "Critical Jewel 2"; }
+    if (id ==  766) { return "Tenderizer Jewel 2"; }
+    if (id ==  767) { return "Charger Jewel 2"; }
+    if (id ==  768) { return "Handicraft Jewel 3"; }
+    if (id ==  769) { return "Draw Jewel 2"; }
+    if (id ==  770) { return "Destroyer Jewel 2"; }
+    if (id ==  771) { return "KO Jewel 2"; }
+    if (id ==  772) { return "Drain Jewel 1"; }
+    if (id ==  774) { return "Flight Jewel 2"; }
+    if (id ==  775) { return "Throttle Jewel 2"; }
+    if (id ==  776) { return "Challenger Jewel 2"; }
+    if (id ==  777) { return "Flawless Jewel 2"; }
+    if (id ==  778) { return "Potential Jewel 2"; }
+    if (id ==  779) { return "Fortitude Jewel 1"; }
+    if (id ==  780) { return "Furor Jewel 2"; }
+    if (id ==  781) { return "Sonorous Jewel 1"; }
+    if (id ==  782) { return "Magazine Jewel 2"; }
+    if (id ==  783) { return "Trueshot Jewel 1"; }
+    if (id ==  784) { return "Artillery Jewel 1"; }
+    if (id ==  785) { return "Heavy Artillery Jewel 1"; }
+    if (id ==  786) { return "Sprinter Jewel 2"; }
+    if (id ==  787) { return "Physique Jewel 2"; }
+    if (id ==  789) { return "Refresh Jewel 2"; }
+    if (id ==  790) { return "Hungerless Jewel 1"; }
+    if (id ==  791) { return "Evasion Jewel 2"; }
+    if (id ==  792) { return "Jumping Jewel 2"; }
+    if (id ==  793) { return "Ironwall Jewel 1"; }
+    if (id ==  794) { return "Sheath Jewel 1"; }
+    if (id ==  795) { return "Friendship Jewel 1"; }
+    if (id ==  796) { return "Enduring Jewel 1"; }
+    if (id ==  797) { return "Satiated Jewel 1"; }
+    if (id ==  798) { return "Gobbler Jewel 1"; }
+    if (id ==  799) { return "Grinder Jewel 1"; }
+    if (id ==  800) { return "Bomber Jewel 1"; }
+    if (id ==  801) { return "Fungiform Jewel 1"; }
+    if (id ==  808) { return "Protection Jewel 1"; }
+    if (id ==  809) { return "Meowster Jewel 1"; }
+    if (id ==  810) { return "Botany Jewel 1"; }
+    if (id ==  811) { return "Geology Jewel 1"; }
+    if (id ==  812) { return "Mighty Jewel 2"; }
+    if (id ==  813) { return "Stonethrower Jewel 1"; }
+    if (id ==  814) { return "Tip Toe Jewel 1"; }
+    if (id ==  815) { return "Brace Jewel 3"; }
+    if (id ==  819) { return "Smoke Jewel 1"; }
+    if (id ==  820) { return "Mirewalker Jewel 1"; }
+    if (id ==  824) { return "Specimen Jewel 1"; }
+    if (id ==  826) { return "Scent Jewel 1"; }
+    if (id ==  828) { return "Intimidator Jewel 1"; }
+    if (id ==  832) { return "Slider Jewel 2"; }
+    if (id ==  833) { return "Medicine Jewel 1"; }
+    if (id ==  834) { return "Forceshot Jewel 3"; }
+    if (id ==  835) { return "Pierce Jewel 3"; }
+    if (id ==  836) { return "Spread Jewel 3"; }
+    if (id ==  837) { return "Enhancer Jewel 2"; }
+    if (id ==  838) { return "Crisis Jewel 1"; }
+    if (id ==  839) { return "Dragonseal Jewel 3"; }
+    if (id ==  842) { return "Maintenance Jewel 1"; }
+    if (id ==  874) { return "Mighty Bow Jewel 2"; }
+    if (id ==  875) { return "Mind's Eye Jewel 2"; }
+    if (id ==  876) { return "Shield Jewel 2"; }
+    if (id ==  877) { return "Sharp Jewel 2"; }
+    if (id ==  878) { return "Elementless Jewel 2"; }
+    if (id ==  825) { return "Miasma Jewel 1"; }
     if (id == 1968) { return "Phoenix Jewel 3"; }
     if (id == 1969) { return "Guardian Jewel 2"; }
     if (id == 1970) { return "Cooling Jewel 2"; }
@@ -404,12 +404,10 @@ public class DecorationNames {
     if (id == 2267) { return "Tenderizer/Evasion Jewel 4"; }
     if (id == 2268) { return "Handicraft/Evasion Jewel 4"; }
     if (id == 2269) { return "Release/Evasion Jewel 4"; }
-    if (id == 2270) { return "Survival Jewel 1"; }
     if (id == 2272) { return "Warming Jewel 2"; }
-    if (id == 2273) { return "new jewel 1"; }
-    if (id == 2274) { return "new jewel 2"; }
-    if (id == 2275) { return "new jewel 3"; }
-
+    if (id == 2273) { return "Diversion Jewel 3"; }
+    if (id == 2274) { return "Acrobat Jewel 3"; }
+    if (id == 2275) { return "Shaver Jewel 3"; }
     return "";
   }
 }
