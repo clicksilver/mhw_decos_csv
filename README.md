@@ -15,7 +15,7 @@ $ mvn package
 
 # Usage 
 ```
-$ java -jar  target\mhw_decos_csv-1.0.jar PATH_TO_SAVEFILE
+$ java -jar exporter\target\exporter-1.2-jar-with-dependencies.jar PATH_TO_SAVE_FILE
 ```
 
 # To do
@@ -23,8 +23,7 @@ $ java -jar  target\mhw_decos_csv-1.0.jar PATH_TO_SAVEFILE
 * ~Decrypt the save file~
 * ~Export to MHW DB~
 * ~Create an executable and distribute~
-* ???
-* Profit
+* Make it read from equipped slots
 
 # Credit
 
@@ -34,6 +33,8 @@ $ java -jar  target\mhw_decos_csv-1.0.jar PATH_TO_SAVEFILE
 * Deathcream - decoration byte offsets
 * Vuze - script prototype
 * Ice - jewel item ID to names
+* [TanukiSharp](https://github.com/TanukiSharp/MHWSaveUtils)
+* [AsteriskAmpersand](https://github.com/AsteriskAmpersand/MHW-Save-Editor)
 
 ## Others
 
