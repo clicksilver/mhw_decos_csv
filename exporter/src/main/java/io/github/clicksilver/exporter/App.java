@@ -135,7 +135,9 @@ public class App {
       contents.append(WikiDB.kDecoNames[i]);
       contents.append("\":");
       contents.append(count);
-      contents.append(",");
+      if (i != wikiDBcounts.length-1) {
+        contents.append(",");
+      }
     }
     contents.append("}");
     return contents.toString();
