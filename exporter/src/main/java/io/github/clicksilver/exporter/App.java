@@ -46,7 +46,9 @@ public class App {
         int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
         
         // If there are no decorations counted, skip this save file.
-        if (decorationCounts == null) { break; }
+        if (decorationCounts == null) {
+          continue;
+        }
 
         // Write out the Honeyhunter format.
         FileWriter honeyFile;
