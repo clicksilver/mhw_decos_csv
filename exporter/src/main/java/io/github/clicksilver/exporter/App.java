@@ -113,31 +113,19 @@ public class App {
   }
   
   public static String outputWikiDB(int[] counts) {
-    int wikiDBcounts[] = new int[WikiDB.kNumDecos];
-    Arrays.fill(wikiDBcounts, 0);
-
+    StringBuilder contents = new StringBuilder("");
+    contents.append("{");
     for (int i=0; i<counts.length; ++i) {
       String name = DecorationNames.getDecorationName(i + kMinJewelId);
       if (name.length() == 0) {
         continue;
       }
-      int order = WikiDB.getOrderingFromName(name);
-      if (order < 0) {
-        continue;
-      }
-      wikiDBcounts[order] = counts[i];
-    }
-
-    StringBuilder contents = new StringBuilder("");
-    contents.append("{");
-    for (int i=0; i<wikiDBcounts.length; ++i) {
-      int count = Math.max(0, wikiDBcounts[i]);
-      count = Math.min(count, 7);
+      int count = Math.min(counts[i], HoneyHunter.getMaxCountFromName(name));
       contents.append("\"");
-      contents.append(WikiDB.kDecoNames[i]);
+      contents.append(name);
       contents.append("\":");
       contents.append(count);
-      if (i != wikiDBcounts.length-1) {
+      if (i != counts.length-1) {
         contents.append(",");
       }
     }
