@@ -293,7 +293,7 @@ public class ja_JP implements ILocalizeMapping {
                 return "標本珠Ⅱ【４】";
             case "Sonorous Jewel+ 4":
                 return "鼓笛珠Ⅱ【４】";
-            case "Hard Botany Jewel+ 4":
+            case "Hard Botany Jewel 4":
                 return "植学珠Ⅳ【４】";
             case "Hard Geology Jewel 4":
                 return "地学珠Ⅲ【４】";

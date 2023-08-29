@@ -253,7 +253,7 @@ public class zh_TW implements ILocalizeMapping {
             case "Pep Jewel+ 4":
                 return "耐眠珠Ⅱ【４】";
             case "Steadfast Jewel+ 4":
-                return "耐絕珠Ⅱ【４】";
+                return "耐絶珠Ⅱ【４】";
             case "Antiblast Jewel+ 4":
                 return "耐爆珠Ⅱ【４】";
             case "Suture Jewel+ 4":
@@ -267,13 +267,13 @@ public class zh_TW implements ILocalizeMapping {
             case "Recovery Jewel+ 4":
                 return "早復珠Ⅱ【４】";
             case "Tip Toe Jewel+ 4":
-                return "潛伏珠Ⅱ【４】";
+                return "潜伏珠Ⅱ【４】";
             case "Intimidator Jewel+ 4":
                 return "威嚇珠Ⅱ【４】";
             case "Meowster Jewel+ 4":
                 return "指示珠Ⅱ【４】";
             case "Hard Tip Toe Jewel 4":
-                return "潛伏珠Ⅲ【４】";
+                return "潜伏珠Ⅲ【４】";
             case "Hard Intimidator Jewel 4":
                 return "威嚇珠Ⅲ【４】";
             case "Hard Meowster Jewel 4":
@@ -294,7 +294,7 @@ public class zh_TW implements ILocalizeMapping {
                 return "標本珠Ⅱ【４】";
             case "Sonorous Jewel+ 4":
                 return "鼓笛珠Ⅱ【４】";
-            case "Hard Botany Jewel+ 4":
+            case "Hard Botany Jewel 4":
                 return "植學珠Ⅳ【４】";
             case "Hard Geology Jewel 4":
                 return "地學珠Ⅲ【４】";
@@ -317,7 +317,7 @@ public class zh_TW implements ILocalizeMapping {
             case "Wind Resist Jewel+ 4":
                 return "防風珠Ⅱ【４】";
             case "Attack Jewel+ 4":
-                return "攻擊珠Ⅱ【４】";
+                return "攻撃珠Ⅱ【４】";
             case "Expert Jewel+ 4":
                 return "達人珠Ⅱ【４】";
             case "Handicraft Jewel+ 4":
@@ -333,7 +333,7 @@ public class zh_TW implements ILocalizeMapping {
             case "Physique Jewel+ 4":
                 return "體術珠Ⅱ【４】";
             case "Evasion Jewel+ 4":
-                return "迴避珠Ⅱ【４】";
+                return "回避珠Ⅱ【４】";
             case "Ironwall Jewel+ 4":
                 return "鐵壁珠Ⅱ【４】";
             case "Friendship Jewel+ 4":
@@ -377,81 +377,81 @@ public class zh_TW implements ILocalizeMapping {
             case "Guardian/Physique Jewel 4":
                 return "守勢・體術珠【４】";
             case "Drain/Evasion Jewel 4":
-                return "奪氣・迴避珠【４】";
+                return "奪氣・回避珠【４】";
             case "Fortitude/Evasion Jewel 4":
-                return "逆境・迴避珠【４】";
+                return "逆境・回避珠【４】";
             case "Crisis/Evasion Jewel 4":
-                return "絕路・迴避珠【４】";
+                return "絕路・回避珠【４】";
             case "Ironwall/Evasion Jewel 4":
-                return "鐵壁・迴避珠【４】";
+                return "鐵壁・回避珠【４】";
             case "Friendship/Evasion Jewel 4":
-                return "友愛・迴避珠【４】";
+                return "友愛・回避珠【４】";
             case "Satiated/Evasion Jewel 4":
-                return "節食・迴避珠【４】";
+                return "節食・回避珠【４】";
             case "Stonethrower/Evasion Jewel 4":
-                return "投石・迴避珠【４】";
+                return "投石・回避珠【４】";
             case "Resistor/Evasion Jewel 4":
-                return "耐屬・迴避珠【４】";
+                return "耐屬・回避珠【４】";
             case "Flight/Evasion Jewel 4":
-                return "飛燕・迴避珠【４】";
+                return "飛燕・回避珠【４】";
             case "Sprinter/Evasion Jewel 4":
-                return "強走・迴避珠【４】";
+                return "強走・回避珠【４】";
             case "Refresh/Evasion Jewel 4":
-                return "早氣・迴避珠【４】";
+                return "早氣・回避珠【４】";
             case "Jumping/Evasion Jewel 4":
-                return "跳躍・迴避珠【４】";
+                return "跳躍・回避珠【４】";
             case "Sheath/Evasion Jewel 4":
-                return "速納・迴避珠【４】";
+                return "速納・回避珠【４】";
             case "Gobbler/Evasion Jewel 4":
-                return "快吃・迴避珠【４】";
+                return "快吃・回避珠【４】";
             case "Grinder/Evasion Jewel 4":
-                return "研磨・迴避珠【４】";
+                return "研磨・回避珠【４】";
             case "Bomber/Evasion Jewel 4":
-                return "爆師・迴避珠【４】";
+                return "爆師・回避珠【４】";
             case "Fungiform/Evasion Jewel 4":
-                return "茸好・迴避珠【４】";
+                return "茸好・回避珠【４】";
             case "Slider/Evasion Jewel 4":
-                return "滑走・迴避珠【４】";
+                return "滑走・回避珠【４】";
             case "Guardian/Evasion Jewel 4":
-                return "守勢・迴避珠【４】";
+                return "守勢・回避珠【４】";
             case "Drain/Attack Jewel 4":
-                return "奪氣・攻擊珠【４】";
+                return "奪氣・攻撃珠【４】";
             case "Fortitude/Attack Jewel 4":
-                return "逆境・攻擊珠【４】";
+                return "逆境・攻撃珠【４】";
             case "Crisis/Attack Jewel 4":
-                return "絕路・攻擊珠【４】";
+                return "絕路・攻撃珠【４】";
             case "Ironwall/Attack Jewel 4":
-                return "鐵壁・攻擊珠【４】";
+                return "鐵壁・攻撃珠【４】";
             case "Friendship/Attack Jewel 4":
-                return "友愛・攻擊珠【４】";
+                return "友愛・攻撃珠【４】";
             case "Satiated/Attack Jewel 4":
-                return "節食・攻擊珠【４】";
+                return "節食・攻撃珠【４】";
             case "Stonethrower/Attack Jewel 4":
-                return "投石・攻擊珠【４】";
+                return "投石・攻撃珠【４】";
             case "Resistor/Attack Jewel 4":
-                return "耐屬・攻擊珠【４】";
+                return "耐屬・攻撃珠【４】";
             case "Flight/Attack Jewel 4":
-                return "飛燕・攻擊珠【４】";
+                return "飛燕・攻撃珠【４】";
             case "Sprinter/Attack Jewel 4":
-                return "強走・攻擊珠【４】";
+                return "強走・攻撃珠【４】";
             case "Refresh/Attack Jewel 4":
-                return "早氣・攻擊珠【４】";
+                return "早氣・攻撃珠【４】";
             case "Jumping/Attack Jewel 4":
-                return "跳躍・攻擊珠【４】";
+                return "跳躍・攻撃珠【４】";
             case "Sheath/Attack Jewel 4":
-                return "速納・攻擊珠【４】";
+                return "速納・攻撃珠【４】";
             case "Gobbler/Attack Jewel 4":
-                return "快吃・攻擊珠【４】";
+                return "快吃・攻撃珠【４】";
             case "Grinder/Attack Jewel 4":
-                return "研磨・攻擊珠【４】";
+                return "研磨・攻撃珠【４】";
             case "Bomber/Attack Jewel 4":
-                return "爆師・攻擊珠【４】";
+                return "爆師・攻撃珠【４】";
             case "Fungiform/Attack Jewel 4":
-                return "茸好・攻擊珠【４】";
+                return "茸好・攻撃珠【４】";
             case "Slider/Attack Jewel 4":
-                return "滑走・攻擊珠【４】";
+                return "滑走・攻撃珠【４】";
             case "Guardian/Attack Jewel 4":
-                return "守勢・攻擊珠【４】";
+                return "守勢・攻撃珠【４】";
             case "Drain/Expert Jewel 4":
                 return "奪氣・達人珠【４】";
             case "Fortitude/Expert Jewel 4":
@@ -767,45 +767,45 @@ public class zh_TW implements ILocalizeMapping {
             case "Release/Physique Jewel 4":
                 return "解放・體術珠【４】";
             case "Footing/Evasion Jewel 4":
-                return "耐震・迴避珠【４】";
+                return "耐震・回避珠【４】";
             case "Charger/Evasion Jewel 4":
-                return "縮短・迴避珠【４】";
+                return "縮短・回避珠【４】";
             case "Enhancer/Evasion Jewel 4":
-                return "昂揚・迴避珠【４】";
+                return "昂揚・回避珠【４】";
             case "Destroyer/Evasion Jewel 4":
-                return "重擊・迴避珠【４】";
+                return "重擊・回避珠【４】";
             case "KO/Evasion Jewel 4":
-                return "ＫＯ・迴避珠【４】";
+                return "ＫＯ・回避珠【４】";
             case "Potential/Evasion Jewel 4":
-                return "底力・迴避珠【４】";
+                return "底力・回避珠【４】";
             case "Wind Resist/Evasion Jewel 4":
-                return "防風・迴避珠【４】";
+                return "防風・回避珠【４】";
             case "Draw/Evasion Jewel 4":
-                return "拔刀・迴避珠【４】";
+                return "拔刀・回避珠【４】";
             case "Throttle/Evasion Jewel 4":
-                return "全開・迴避珠【４】";
+                return "全開・回避珠【４】";
             case "Challenger/Evasion Jewel 4":
-                return "挑戰・迴避珠【４】";
+                return "挑戰・回避珠【４】";
             case "Flawless/Evasion Jewel 4":
-                return "無傷・迴避珠【４】";
+                return "無傷・回避珠【４】";
             case "Furor/Evasion Jewel 4":
-                return "逆上・迴避珠【４】";
+                return "逆上・回避珠【４】";
             case "Mighty/Evasion Jewel 4":
-                return "渾身・迴避珠【４】";
+                return "渾身・回避珠【４】";
             case "Brace/Evasion Jewel 4":
-                return "耐衝・迴避珠【４】";
+                return "耐衝・回避珠【４】";
             case "Phoenix/Evasion Jewel 4":
-                return "轉福・迴避珠【４】";
+                return "轉福・回避珠【４】";
             case "Earplug/Evasion Jewel 4":
-                return "防音・迴避珠【４】";
+                return "防音・回避珠【４】";
             case "Critical/Evasion Jewel 4":
-                return "超心・迴避珠【４】";
+                return "超心・回避珠【４】";
             case "Tenderizer/Evasion Jewel 4":
-                return "痛擊・迴避珠【４】";
+                return "痛擊・回避珠【４】";
             case "Handicraft/Evasion Jewel 4":
-                return "匠・迴避珠【４】";
+                return "匠・回避珠【４】";
             case "Release/Evasion Jewel 4":
-                return "解放・迴避珠【４】";
+                return "解放・回避珠【４】";
             case "Warming Jewel 2":
                 return "耐寒珠【２】";
             case "Diversion Jewel 3":

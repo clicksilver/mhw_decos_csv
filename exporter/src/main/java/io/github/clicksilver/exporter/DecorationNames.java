@@ -148,7 +148,7 @@ public class DecorationNames {
     if (id == 2011) { return "Mirewalker Jewel+ 4"; }
     if (id == 2012) { return "Specimen Jewel+ 4"; }
     if (id == 2013) { return "Sonorous Jewel+ 4"; }
-    if (id == 2014) { return "Hard Botany Jewel+ 4"; }
+    if (id == 2014) { return "Hard Botany Jewel 4"; }
     if (id == 2015) { return "Hard Geology Jewel 4"; }
     if (id == 2016) { return "Hard Survival Jewel 4"; }
     if (id == 2017) { return "Hard Specimen Jewel 4"; }

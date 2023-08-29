@@ -169,6 +169,7 @@ public class App {
           break;
         case "ja-JP":
           mapping = new ja_JP();
+          break;
         default:
           mapping = new en_US();
           break;
