@@ -6,7 +6,7 @@
 
   <artifactId>mhw_decos_exporter</artifactId>
   <groupId>io.github.clicksilver.exporter</groupId>
-  <version>1.3</version>
+  <version>1.4</version>
   <packaging>pom</packaging>
 
   <modules>

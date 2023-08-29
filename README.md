@@ -15,7 +15,7 @@ $ mvn package
 
 # Usage 
 ```
-$ java -jar exporter\target\exporter-1.3-jar-with-dependencies.jar PATH_TO_SAVE_FILE
+$ java -jar exporter\target\exporter-1.4-jar-with-dependencies.jar PATH_TO_SAVE_FILE
 ```
 
 # To do

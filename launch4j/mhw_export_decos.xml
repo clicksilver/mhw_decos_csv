@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\rawrjun\code\mhw_decos_csv\exporter\target\exporter-1.3-jar-with-dependencies.jar</jar>
+  <jar>C:\Users\rawrjun\code\mhw_decos_csv\exporter\target\exporter-1.4-jar-with-dependencies.jar</jar>
   <outfile>C:\Users\rawrjun\code\mhw_decos_csv\exe\mhw_export_decos.exe</outfile>
   <errTitle>Missing Java runtime environment</errTitle>
   <cmdLine></cmdLine>
