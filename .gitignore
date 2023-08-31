@@ -6,3 +6,5 @@ exe/*
 exporter/target/*
 savecrypt/target/*
 target/*
+honeyhunter-*.txt
+mhw-wiki-db-*.txt
