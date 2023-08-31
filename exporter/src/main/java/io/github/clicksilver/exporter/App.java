@@ -1,15 +1,20 @@
 package io.github.clicksilver.exporter;
 
 import java.io.FileWriter;
-import java.lang.String;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import io.github.legendff.mhw.save.Savecrypt;
+import io.github.clicksilver.exporter.LocalizeMapping.ILocalizeMapping;
+import io.github.clicksilver.exporter.LocalizeMapping.en_US;
+import io.github.clicksilver.exporter.LocalizeMapping.ja_JP;
+import io.github.clicksilver.exporter.LocalizeMapping.zh_TW;
 
 public class App {
 
@@ -17,34 +22,34 @@ public class App {
   static final int kMinJewelId = 727;
   static final int kMaxJewelId = 2275;
   static final int kNumDecos = kMaxJewelId - kMinJewelId + 1;
-  
+
   // 10 pages, 50 jewels per page
-  static final int kDecoInventorySize = 50 * 10; 
+  static final int kDecoInventorySize = 50 * 10;
 
   // 8 bytes per jewel, (4 for ID + 4 for count)
   static final int kNumBytesPerDeco = 8;
 
   // direct offsets into the decrypted save, where each decorations list starts
-  static final int kSaveSlotDecosOffsets[] = new int[]{4302696, 6439464, 8576232};
+  static final int kSaveSlotDecosOffsets[] = new int[] { 4302696, 6439464, 8576232 };
 
   public static void main(String[] args) {
     if (args.length == 0) {
       JFrame frame = new JFrame();
       JOptionPane.showMessageDialog(frame, "No input save file detected.\n\n" +
-                                    "Drag save file onto the executable.",
-                                    "ERROR", JOptionPane.INFORMATION_MESSAGE);
+          "Drag save file onto the executable.",
+          "ERROR", JOptionPane.INFORMATION_MESSAGE);
       System.exit(0);
     }
-    byte[] bytes;
+    // byte[] bytes;
     Path p = Paths.get(args[0]);
     try {
       byte[] save = Files.readAllBytes(p);
       byte[] decrypted_save = io.github.legendff.mhw.save.Savecrypt.decryptSave(save);
 
-      for (int i=0; i<3; ++i) {
+      for (int i = 0; i < 3; ++i) {
         // Get actual decoration counts from the decrypted save.
         int[] decorationCounts = getJewelCounts(decrypted_save, kSaveSlotDecosOffsets[i]);
-        
+
         // If there are no decorations counted, skip this save file.
         if (decorationCounts == null) {
           continue;
@@ -63,7 +68,7 @@ public class App {
             honeyFile.write("\n");
           }
           honeyFile.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
           JFrame frame = new JFrame();
           JOptionPane.showMessageDialog(frame, "Failed to write honey hunter output");
         }
@@ -77,7 +82,7 @@ public class App {
                 .write("WARNING: Unequip all decorations before using this" + " otherwise the count will be wrong.");
             wikidbFile.write("\n");
             wikidbFile.write("\n");
-            wikidbFile.write(outputWikiDB(decorationCounts));
+            wikidbFile.write(outputWikiDB(decorationCounts, "en-US"));
             wikidbFile.write("\n");
           }
           wikidbFile.close();
@@ -85,13 +90,47 @@ public class App {
           JFrame frame = new JFrame();
           JOptionPane.showMessageDialog(frame, "Failed to write mhw-wiki-db output");
         }
+
+        try {
+          wikidbFile = new FileWriter("mhw-wiki-db-tw-" + String.valueOf(i + 1) + ".txt");
+          if (decorationCounts != null) {
+            wikidbFile
+                .write("WARNING: Unequip all decorations before using this" + " otherwise the count will be wrong.");
+            wikidbFile.write("\n");
+            wikidbFile.write("\n");
+            wikidbFile.write(outputWikiDB(decorationCounts, "zh-TW"));
+            wikidbFile.write("\n");
+          }
+          wikidbFile.close();
+        } catch (Exception e) {
+          JFrame frame = new JFrame();
+          JOptionPane.showMessageDialog(frame,
+              String.format("Failed to write mhw-wiki-db-tw output\r\nbecause %s)", e.getMessage()));
+        }
+
+        try {
+          wikidbFile = new FileWriter("mhw-wiki-db-jp-" + String.valueOf(i + 1) + ".txt");
+          if (decorationCounts != null) {
+            wikidbFile
+                .write("WARNING: Unequip all decorations before using this" + " otherwise the count will be wrong.");
+            wikidbFile.write("\n");
+            wikidbFile.write("\n");
+            wikidbFile.write(outputWikiDB(decorationCounts, "ja-JP"));
+            wikidbFile.write("\n");
+          }
+          wikidbFile.close();
+        } catch (Exception e) {
+          JFrame frame = new JFrame();
+          JOptionPane.showMessageDialog(frame,
+              String.format("Failed to write mhw-wiki-db-jp output\r\nbecause %s)", e.getMessage()));
+        }
       }
 
       JFrame frame = new JFrame();
       JOptionPane.showMessageDialog(frame, "Successfully exported decorations",
           "COMPLETE", JOptionPane.INFORMATION_MESSAGE);
       System.exit(0);
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
       System.out.println(e);
       JFrame frame = new JFrame();
@@ -103,29 +142,44 @@ public class App {
   }
 
   public static void printJewels(int[] counts) {
-    for (int i=0; i<counts.length; ++i) {
+    for (int i = 0; i < counts.length; ++i) {
       String name = DecorationNames.getDecorationName(i + kMinJewelId);
       int count = counts[i];
-      if(name.length() != 0 && count != 0) {
+      if (name.length() != 0 && count != 0) {
         System.out.println(name + ": " + counts[i]);
       }
     }
   }
-  
-  public static String outputWikiDB(int[] counts) {
+
+  public static String outputWikiDB(int[] counts, String lang) {
     StringBuilder contents = new StringBuilder("");
     contents.append("{");
-    for (int i=0; i<counts.length; ++i) {
+    for (int i = 0; i < counts.length; ++i) {
       String name = DecorationNames.getDecorationName(i + kMinJewelId);
       if (name.length() == 0) {
         continue;
       }
       int count = Math.min(counts[i], HoneyHunter.getMaxCountFromName(name));
       contents.append("\"");
-      contents.append(name);
+
+      ILocalizeMapping mapping;
+      switch (lang) {
+        case "zh-TW":
+          mapping = new zh_TW();
+          break;
+        case "ja-JP":
+          mapping = new ja_JP();
+          break;
+        default:
+          mapping = new en_US();
+          break;
+      }
+
+      contents.append(mapping.Map(name));
+
       contents.append("\":");
       contents.append(count);
-      if (i != counts.length-1) {
+      if (i != counts.length - 1) {
         contents.append(",");
       }
     }
@@ -137,7 +191,7 @@ public class App {
     int hhCounts[] = new int[HoneyHunter.kNumDecos];
     Arrays.fill(hhCounts, 0);
 
-    for (int i=0; i<counts.length; ++i) {
+    for (int i = 0; i < counts.length; ++i) {
       String name = DecorationNames.getDecorationName(i + kMinJewelId);
       if (name.length() == 0) {
         continue;
@@ -152,7 +206,7 @@ public class App {
 
     StringBuilder contents = new StringBuilder("");
     contents.append(hhCounts[0]);
-    for (int i=1; i<hhCounts.length; ++i) {
+    for (int i = 1; i < hhCounts.length; ++i) {
       contents.append(",");
       contents.append(hhCounts[i]);
     }
@@ -163,16 +217,16 @@ public class App {
     int counts[] = new int[kNumDecos];
 
     ByteBuffer buf = ByteBuffer.wrap(bytes, offset, kDecoInventorySize * kNumBytesPerDeco);
-    
+
     // NOTE: Java is dumb about bytes.
     buf.order(ByteOrder.LITTLE_ENDIAN);
-    
+
     boolean anyNonZero = false;
 
-    for (int i=0; i<kDecoInventorySize; i++) {
+    for (int i = 0; i < kDecoInventorySize; i++) {
       int jewelId = buf.getInt();
       int jewelCount = buf.getInt();
-      if(jewelId == 0) {
+      if (jewelId == 0) {
         // missing owned deco, which is not an invalid deco
         continue;
       }
